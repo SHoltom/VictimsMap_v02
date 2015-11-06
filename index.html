@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Victims Map Version 2</title>
+  <!--<script>document.write('<script type="text/javascript" src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>-->
+
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="static/css/keen-dashboards.css" />
+  <!--<link rel="stylesheet" type="text/css" href="static/css/mapbox.css" />-->
+  <link rel="stylesheet" type="text/css" href="static/css/geo-explorer.css" />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+ <!--  <link rel="stylesheet" href="static/css/bootstrap-responsive.css" >-->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="static/css/dvf.css" type="text/css" media="screen" />
+ <link rel="stylesheet" href="static/css/sh.css" type="text/css" media="screen" />
+
+  <!--  <link rel="stylesheet" href="../css/example.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../css/ui.css" type="text/css" media="screen" />-->
+
+</head>
+
+<body class="application" >
+
+<style>
+.menu-ui {
+  position:absolute;
+  top:10px;
+  right:10px;
+  }
+
+/* Do a fancy data transition for browsers that support it */
+path {
+  -webkit-transition:fill 200ms;
+          transition:fill 200ms;
+  }
+
+
+.leaflet-popup-close-button {
+  display: none;
+  }
+.leaflet-popup-content-wrapper {
+  pointer-events: none;
+  }
+
+</style>
+
+  <div id="app-wrapper">
+   
+
+   <div id="app-toolbar">
+     
+        <div class="row tools">
+          <!--<div class="col-sm-4">-->
+            <div class="tool coordinates">
+              <h5>&nbsp;&nbsp;Select a Crime</h5>
+                  <div class="input-prepend input-append" >
+        <div class="btn-group" >
+
+            <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown" style="width:15em;background:#dfc27d;">
+            All Crime
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                  <li><a href="#">Anti-Social Behaviour</a></li>
+                  <li><a href="#">Burglary</a></li>
+                   <li><a href="#">Bicycle Theft</a></li>
+                       <li><a href="#">Drugs</a></li>
+                 <!--<li><a href="#">Public Order</a></li>-->
+                  <li><a href="#">Robbery</a></li>
+                   <li><a href="#">Shoplifting</a></li>
+                    <li><a href="#">Theft from the Person</a></li>
+               
+                  <li><a href="#">Vehicle Crime</a></li>
+                   <li><a href="#">Violent Crime</a></li>
+                           <li><a href="#">Other Theft</a></li>
+                  <li><a href="#">Other Crime</a></li>
+                   <li><a href="#">Possession of Weapons</a></li>
+                 
+                       <li><a href="#">Criminal Damage and Arson</a></li>
+            
+                       
+                      <li><a href="#">Public Disorder and Weapons</a></li>
+                         <li><a href="#">Violence and Sexual Offences</a></li>
+                
+                 
+               
+            
+                  <li class="divider"></li>
+        			 <li><a href="#">All Crime</a></li>
+                  
+            </ul>
+             </div>
+    </div>
+
+              <!-- <div id='variables' class='form-control'></div>-->
+            </div>
+       <!--   </div>-->
+         </div> 
+      </form>
+    </div>
+    <div id="app-maparea"></div>
+
+    <div id="app-sidebar">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Demography
+        </div>
+        <div class="chart-stage">
+           <div id="wrapper">
+       
+         <div id="star" class="button dialog-open">
+          <img src="static/Images/Aicon.png" alt="Aicon" width="100%" height="100%">
+   
+      </div>
+      <div id="anchor" class="button dialog-open">
+       <img src="static/Images/Bicon.png" alt="Bicon" width="100%" height="100%">
+   
+      </div>
+      <div id="beaker" class="button dialog-open">
+        <img src="static/Images/Cicon.png" alt="Cicon" width="100%" height="100%">
+   
+      </div>
+      <div id="bug" class="button dialog-open">
+   <img src="static/Images/Dicon.png" alt="Dicon" width="100%" height="100%">
+   
+      </div>
+            <div id="E" class="button dialog-open">
+   <img src="static/Images/Eicon.png" alt="Eicon" width="100%" height="100%">
+   
+      </div>
+     <div id="F" class="button dialog-open">
+       <img src="static/Images/Ficon.png" alt="Ficon" width="100%" height="100%">
+   
+      </div>
+          <div id="G" class="button dialog-open">
+       <img src="static/Images/Gicon.png" alt="Gicon" width="100%" height="100%">
+   
+      </div>
+          <div id="H" class="button dialog-open">
+       <img src="static/Images/Hicon.png" alt="Hicon" width="100%" height="100%">
+   
+      </div>
+          <div id="I" class="button dialog-open">
+       <img src="static/Images/Iicon.png" alt="Iicon" width="100%" height="100%">
+   
+      </div>
+          <div id="J" class="button dialog-open">
+       <img src="static/Images/Jicon.png" alt="Jicon" width="100%" height="100%">
+   
+      </div>
+       <div id="K" class="button dialog-open">
+        <img src="static/Images/Kicon.png" alt="Kicon" width="100%" height="100%">
+   
+      </div>
+     
+      <div id="L" class="button dialog-open">
+        <img src="static/Images/Licon.png" alt="Licon" width="100%" height="100%">
+   
+      </div>
+     
+      <div id="M" class="button dialog-open">
+        <img src="static/Images/Micon.png" alt="Micon" width="100%" height="100%">
+   
+      </div>
+     
+      <div id="N" class="button dialog-open">
+        <img src="static/Images/Nicon.png" alt="Nicon" width="100%" height="100%">
+   
+      </div>
+     
+      <div id="O" class="button dialog-open">
+        <img src="static/Images/Oicon.png" alt="Oicon" width="100%" height="100%">
+   
+      </div>
+   <!--   <div id="U" class="button dialog-open">
+        <img src="static/Images/Uicon.png" alt="Uicon" width="100%" height="100%">
+   
+      </div>-->
+     
+          <div id="chart-01">
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Outcomes (2012-2014)
+        </div>
+        <div class="chart-stage">
+          <label for="comment">Average (2012-2014) no. of recorded incidents for chosen crime:</label>
+      <textarea class="form-control" rows="1" id="allcrimes"></textarea>
+        <label for="comment">Breakdown by crime type:</label>
+      <textarea class="form-control" rows="2" id="topcrime"></textarea>
+     
+     
+        <label for="comment">Percentage of outcomes reported:</label>
+      <textarea class="form-control" rows="1" id="recorded"></textarea>
+      
+                <label for="comment">Breakdown by outcome:</label>
+      <textarea class="form-control" rows="5" cols="1" id="outtype"></textarea>
+      
+      
+      
+      
+                <label for="comment">Legend <div id="Help" class="button2 dialog-open">
+       <img src="static/Images/help.png" alt="help" width="100%" height="100%" >
+   
+      </div></label>
+       <img src="static/Images/legend_key.png" alt="legend" width="100%" height="100%">
+      
+      
+        </div>
+      </div>
+
+    
+    </div>
+
+  </div>
+     <div id="overlay">
+      <div id="screen"></div>
+      <div id="dialog-star" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/AClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+        <div id="dialog-anchor" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/BClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+         <div id="dialog-beaker" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/CClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+        <div id="dialog-bug" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/DClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+       <div id="dialog-E" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/EClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+           <div id="dialog-F" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/FClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+                <div id="dialog-G" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/GClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+             <div id="dialog-H" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/HClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+             <div id="dialog-I" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/IClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+          <div id="dialog-J" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/JClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+         <div id="dialog-K" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/KClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+            <div id="dialog-L" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/LClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+         <div id="dialog-M" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/MClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+         <div id="dialog-N" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/NClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+         <div id="dialog-O" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/OClass.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+      
+      
+        <div id="dialog-Help" class="dialog">
+        <div class="body-dialog">
+         <img src="static/Images/Help_details.png" alt="X-axis label" width="100%" height="100%">
+        </div>
+        <div class="ok-dialog">x<i class="icon-ok-sign"></i></div>
+      </div>
+     </div>
+
+
+   <script type="text/javascript" src="static/js/mapbox.js"></script>
+  <script type="text/javascript" src="static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="static/js/keen.min.js"></script>
+  <!--<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/3.1.0/keen.js?v=20141106"></script>-->
+  <script type="text/javascript" src="static/js/meta.js"></script>
+
+ <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-pip/v0.0.2/leaflet-pip.js'></script>
+<script src='/static/js/EngWalesPoliceForces.js'></script>
+<!--<script src='/static/data/ASB.js'></script>-->
+	<script src='/static/js/ALL.js'></script>
+	<script src='/static/js/ASB.js'></script>
+<script src='/static/js/Burg.js'></script>
+<script src='/static/js/Rob.js'></script>
+<script src='/static/js/VehC.js'></script>
+		<script src='/static/js/CDA.js'></script>
+	<script src='/static/js/Drugs.js'></script>
+	<script src='/static/js/OT.js'></script>
+<script src='/static/js/Shop.js'></script>
+<script src='/static/js/OC.js'></script>
+<script src='/static/js/PDW.js'></script>
+<script src='/static/js/VSO.js'></script>
+<script src='/static/js/TFP.js'></script>
+<script src='/static/js/PW.js'></script>
+<script src='/static/js/BT.js'></script>
+<script src='/static/js/VC.js'></script>
+
+<script type="text/javascript" >
+function resetOpa(){
+  $('#star').css('opacity',  1);
+               $('#anchor').css('opacity',  1);
+                $('#beaker').css('opacity', 1);
+                 $('#bug').css('opacity',   1);
+                   $('#E').css('opacity',   1);
+               $('#F').css('opacity',  1);
+                $('#G').css('opacity',  1);
+                 $('#H').css('opacity',   1);
+                     $('#I').css('opacity', 1);
+               $('#J').css('opacity', 1);
+                $('#K').css('opacity', 1);
+                 $('#L').css('opacity', 1);
+                     $('#M').css('opacity',  1);
+               $('#N').css('opacity',  1);
+                $('#O').css('opacity',  1);
+                 $('#U').css('opacity',  1);
+};
+// Custom namespace
+var modal = {};
+modal.hide = function() {
+  $('#overlay').fadeOut();
+  $('.dialog').fadeOut();
+};
+
+$(document).ready(function() {
+
+  // Open appropriate dialog when clicking on anything with class "dialog-open"
+  $('.dialog-open').click(function() {
+    modal.id = '#dialog-' + this.id;
+    $('#overlay').fadeIn();
+    $(modal.id).fadeIn();
+  });
+  // Close dialog when clicking on the "ok-dialog"
+  $('.ok-dialog').click(function() {
+    modal.hide();
+  });
+  // Require the user to click OK if the dialog is classed as "modal"
+  $('#overlay').click(function() {
+    if ($(modal.id).hasClass('modal')) {
+      // Do nothing
+    } else {
+      modal.hide();
+    }
+  });
+  // Prevent dialog closure when clicking the body of the dialog (overrides closing on clicking overlay)
+//  $('.dialog').click(function() {
+ //   event.stopPropagation();
+ // });
+});
+
+
+ 
+</script>
+ <script type="text/javascript" src="static/js/geo-explorer2.js"></script>
+
+
+		<script type="text/javascript" src="static/js/javascript.util.js"></script>
+	<script type="text/javascript" src="static/js/jsts.js"></script>
+		<script type="text/javascript" src="static/js/geohash.js"></script>
+		<script type="text/javascript" src="static/js/leaflet-dvf.js"></script>	
+
+</body>
+</html>

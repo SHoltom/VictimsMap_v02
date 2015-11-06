@@ -1,0 +1,280 @@
+/* Variable declaration */
+/* General styling */
+/* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+/*body {
+ background:#444444 url("bg_pixel-grey.jpg") repeat fixed;
+  /*background-color: #000;
+    color: #fff;*/
+  /*Image Credit: Nick Brombal - Designer
+
+}*/
+
+#wrapper {
+  margin: 0 auto;
+  position:relative;
+  left:19px;
+  top:1em;
+  width: 100%;
+   margin-bottom:18px;
+  float:left;
+}
+
+.button {
+  float: left;
+  height: 44px;
+  width: 64px;
+  margin: 0 10px;
+  margin-bottom:8px;
+    cursor: pointer;
+   background-color:#dfc27d;
+  box-shadow: 3px 3px #2E2E2E;
+}
+.button [class^="icon-"] {
+  display: inline-block;
+  width: 100%;
+  line-height: 64px;
+  text-align: center;
+  height: 64px;
+  font-size: 38px;
+  background: -webkit-linear-gradient(#fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+.button [class^="icon-"]:before {
+  display: initial;
+ 
+}
+
+
+
+.button2 {
+  float: right;
+
+  height: 34px;
+  width: 30px;
+  margin-left:25em;
+  margin-bottom:8px;
+cursor: pointer;
+
+}
+.button2 [class^="icon-"] {
+  display: inline-block;
+  width: 100%;
+  line-height: 64px;
+  text-align: center;
+  height: 64px;
+  font-size: 38px;
+  background: -webkit-linear-gradient(#fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+.button2 [class^="icon-"]:before {
+  display: initial;
+ 
+}
+
+
+/*#star {
+  background-color:#d4edf4;
+}
+
+#anchor {
+  background-color: #e2f2d5;
+}
+
+#beaker {
+  background-color: #f9fbba;
+}
+
+#bug {
+  background-color: #f6c2c2;
+}
+
+#G {
+  background-color:#dfb550;
+}
+
+#E {
+  background-color: #decbe4;
+}
+
+#F {
+  background-color: #fed9a6;
+}
+
+#H {
+  background-color:  	#b0a0a0;
+}
+#I{
+  background-color:#ffd2b5;
+}
+
+#J {
+  background-color: #8dd3c7;
+}
+
+#K {
+  background-color: #b3de69;
+}
+
+#L {
+  background-color: #f6c2c2;
+}
+
+#M {
+  background-color:#91b9ba;
+}
+
+#N{
+  background-color: #fdbf6f;
+}
+
+#O {
+  background-color: #f9fbba;
+}
+
+#U {
+  background-color: #e5d8bd;
+}*/
+/* Modal overlay styling */
+#overlay {
+  display: none;
+  z-index: 5;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+#overlay #screen {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 1;
+}
+#overlay .dialog {
+  z-index: 10;
+  display: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 90%;
+  width: 75%;
+  background-color: #EEE;
+}
+#overlay .dialog .label-dialog {
+  float: left;
+  height: 0px;
+  width: 0px;
+  background-color: #444;
+  text-align: center;
+  vertical-align: top;
+}
+#overlay .dialog .label-dialog [class^="icon-"] {
+  line-height: 100px;
+  font-size: 60px;
+  color: #333;
+}
+#overlay .dialog .body-dialog {
+  float: left;
+ 
+ 
+  line-height: 100px;
+  
+  height: 100%;
+  width: 80%;
+}
+#overlay .dialog .body-dialog p {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  font: 14px roboto;
+  color: #000000;/*#EEE;*/
+  vertical-align: middle;
+}
+#overlay .dialog .body-dialog p span {
+  font-weight: 700;
+}
+#overlay .dialog .ok-dialog {
+  float: left;
+  height: 40px;
+  width: 50px;
+  font-size:20px;
+  background-color: #333;
+  text-align: center;
+  vertical-align: top;
+}
+#overlay .dialog .ok-dialog [class^="icon-"] {
+  line-height: 100px;
+  font-size: 30px;
+  color: #EEE;
+}
+#overlay .dialog .ok-dialog:hover {
+  background-color: #555;
+  cursor: pointer;
+}
+
+#overlay
+.label-dialog [class^="icon-"] {
+  color: #52CC52;
+}
+
+#overlay .dialog
+.ok-dialog {
+  background-color: #d5a725;
+}
+#overlay .dialog
+.ok-dialog:hover {
+  background-color: #dddd41;
+}
+textarea {
+  resize: none;
+
+ 
+}
+
+#textdisplay{
+
+margin-left:2%;
+  height:30px;
+  width:318px;
+}
+
+#textdisplay2{
+
+margin-left:2%;
+height:40px;
+  width:400px;
+}
+
+#textdisplay3{
+
+margin-left:2%;
+height:50px;
+  width:350px;
+}
+
+
+#textdisplay4{
+margin-left:2%;
+margin-top:5%;
+height:20px;
+  width:300px;
+}
+
+
+
+
+
+
